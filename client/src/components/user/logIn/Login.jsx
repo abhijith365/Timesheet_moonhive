@@ -1,4 +1,3 @@
-import logo from '../../../assets/moonhive.png'
 
 const Login = () => {
     return (

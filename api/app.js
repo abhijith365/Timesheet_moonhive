@@ -7,6 +7,9 @@ import { connect } from './config/db.js'
 
 const app = express()
 
+// 
+import userRoute from "./routers/UserRoute.js"
+
 //config middleware
 dotenv.config({ path: './config/config.env' })
 app.use(express.json())
@@ -21,5 +24,14 @@ connect()
 if (process.env.NODE_ENV === "DEV") {
     app.use(morgan('dev'))
 }
+
+//routes
+// user route
+app.use("/api/user", userRoute)
+// admin route
+app.use("/api/admin", (req, res) => res.send("hhhhhh"))
+
+app.use("*", (req, res) => res.send("page not found"))
+
 
 app.listen(5678, () => { console.log(`server running on port 5678...`) })
