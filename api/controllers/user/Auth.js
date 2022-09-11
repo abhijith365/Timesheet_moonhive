@@ -31,13 +31,13 @@ export const login = async (req, res, next) => {
 
         const user = await User.findOne({ "username": req.body.username })
 
-        if (!user) return
-        next(404, "User not found!")
+        if (!user)
+            return res.status(404).json({ "message": "User not found!" })
 
         const isPassword = bcrypt.compare(req.body.password, user.password)
 
-        if (!isPassword) return
-        next(400, "wrong password or user name")
+        if (!isPassword)
+            return res.status(400).json({ "message": "wrong password or user name" })
 
         //creating  jwt 
         const token = jwt.sign({ id: user.id, isAdmin: user.isAdmin }, process.env.JWT_SECRET)
@@ -48,6 +48,6 @@ export const login = async (req, res, next) => {
         }).status(200).json({ ...others })
 
     } catch (error) {
-        next(error)
+        res.status(500).json({ "message": error.message })
     }
 }
