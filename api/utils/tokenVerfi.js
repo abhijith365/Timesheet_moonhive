@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 
 export const verfiToken = (req, res, next) => {
-    const token = req.cookie.access_token
+    const token = req.cookie?.access_token
 
     if (!token) return res.status(401).json({ "message": "Not authenticated" })
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const SideNav = () => {
   return (
@@ -15,9 +16,9 @@ export const SideNav = () => {
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
             />
           </svg>
@@ -26,49 +27,49 @@ export const SideNav = () => {
 
         {/* <!-- nav --> */}
         <nav>
-          <a
-            href="#"
+          <Link
+            to="/"
             className="block py-4 bg-blue-700 my-2 text-lg px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white"
           >
             Home
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/currentTasks"
             className="block py-4 bg-blue-700 my-2 text-lg px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white"
           >
             Current Tasks
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/previousTasks"
             className="block py-4 bg-blue-700 my-2 text-lg px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white"
           >
             Previous Tasks
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/addATimesheet"
             className="block py-4 bg-blue-700 my-2 text-lg px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white"
           >
             Add a Timesheet
-          </a>
+          </Link>
 
-          <a
-            href="#"
+          <Link
+            to="/waitingFAccept"
             className="block py-4 bg-blue-700 my-2 text-lg px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white"
           >
             Waiting for Accept
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/acceptedTasks"
             className="block py-4 bg-blue-700 my-2 text-lg px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white"
           >
             Accepted Tasks
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/rejectedTask"
             className="block py-4 bg-blue-700 my-2 text-lg px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white"
           >
             Rejected Tasks
-          </a>
+          </Link>
         </nav>
       </div>
     </>

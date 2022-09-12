@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === "DEV") {
 // user route
 app.use("/api/user", userRoute)
 // admin route
-app.use("/api/admin", (req, res) => res.send("hhhhhh"))
+app.use("/api/admin", (req, res) => res.status(200).send({ "message": "admin home" }))
 
 app.use("*", (req, res) => res.send("page not found"))
 

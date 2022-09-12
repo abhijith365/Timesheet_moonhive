@@ -1,13 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 function Header() {
+    const user = useSelector(state => state.user)
     return (
-        <nav class="bg-white py-2 md:py-4 w-100">
-            <div class="container px-4 mx-auto md:flex md:items-center">
+        <nav className="bg-white py-2 md:py-4 w-100">
+            <div className="container px-4 mx-auto md:flex md:items-center">
 
-                <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
-                    <a href="#" class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300">Login</a>
-                    <a href="#" class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-solid border-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">Signup</a>
+                <div className="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
+                    <a href="#" className="p-2 lg:px-4 md:mx-2 text-neutral-800 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300">{user && user.data.username || "loading..."}</a>
+                    <a href="#" className="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-solid border-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">LogOut</a>
                 </div>
             </div>
         </nav>

@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 import Header from "../../components/user/navbar/Header"
 import { SideNav } from "../../components/user/navbar/SideNav"
 import { Timesheet } from "./Timesheet"
@@ -12,7 +13,8 @@ function HomePage() {
                 {/* <!-- content --> */}
                 <div className="flex-1">
                     <Header />
-                    <Timesheet />
+                    {/* <Timesheet /> */}
+                    <Outlet />
                 </div>
             </div>
         </>

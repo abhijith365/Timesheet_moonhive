@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { userLogin } from "../../../api/user/user.api";
 
 const initialState = {
     loading: false,
@@ -7,8 +8,12 @@ const initialState = {
     error: ''
 }
 
-export const fetchUser = createAsyncThunk('user/fetchUser', () => {
-    return
+export const fetchUser = createAsyncThunk('user/fetchUser', async (body) => {
+
+    const data = await userLogin(body)
+    console.log(data.data)
+    return data.data
+
 })
 
 const userSlice = createSlice({
