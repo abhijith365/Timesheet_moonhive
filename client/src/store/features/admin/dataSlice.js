@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { allTasks, allUsers } from '../../../api/admin/admin.api'
 
 const initialState = {
     loading: false,
@@ -11,7 +12,8 @@ const initialState = {
 }
 
 export const allUser = createAsyncThunk('admins/getAlluser', async () => {
-    return
+    const res = await allUsers()
+    return res.data
 })
 
 export const getWeeklyData = createAsyncThunk('admins/weeklyData', async () => {
@@ -21,8 +23,8 @@ export const getWeeklyData = createAsyncThunk('admins/weeklyData', async () => {
 export const getMonthlyData = createAsyncThunk('admins/monthlyData', async () => {
     return
 })
-export const allTasks = createAsyncThunk('admins/allTasks', async () => {
-    return
+export const allUserTasks = createAsyncThunk('admins/allTasks', async () => {
+    return await allTasks()
 })
 
 const dataSlice = createSlice({
@@ -42,9 +44,9 @@ const dataSlice = createSlice({
         builder.addCase(getMonthlyData.rejected, (state, action) => { state.monthlyData = '', state.error = action.error.message, state.loading = false })
         builder.addCase(getMonthlyData.fulfilled, (state, action) => { state.monthlyData = action.payload, state.error = '', state.loading = false })
         // all Task reducer
-        builder.addCase(allTasks.pending, (state) => { state.allTasksData = '', state.error = '', state.loading = true })
-        builder.addCase(allTasks.rejected, (state, action) => { state.allTasksData = '', state.error = action.error.message, state.loading = false })
-        builder.addCase(allTasks.fulfilled, (state, action) => { state.allTasksData = action.payload, state.error = '', state.loading = false })
+        builder.addCase(allUserTasks.pending, (state) => { state.allTasksData = '', state.error = '', state.loading = true })
+        builder.addCase(allUserTasks.rejected, (state, action) => { state.allTasksData = '', state.error = action.error.message, state.loading = false })
+        builder.addCase(allUserTasks.fulfilled, (state, action) => { state.allTasksData = action.payload, state.error = '', state.loading = false })
     }
 })
 

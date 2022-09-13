@@ -57,6 +57,12 @@ export const SideNav = () => {
           >
             All User
           </Link>
+          <Link
+            to="/admin/allTasks"
+            className="block py-4 bg-blue-700 my-2 text-lg px-4 rounded transition duration-200 hover:bg-blue-600 hover:text-white"
+          >
+            All Tasks
+          </Link>
 
 
         </nav>
