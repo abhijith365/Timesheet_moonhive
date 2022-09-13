@@ -9,6 +9,7 @@ const app = express()
 
 // 
 import userRoute from "./routers/UserRoute.js"
+import adminRoute from './routers/AdminRoute.js'
 
 //config middleware
 dotenv.config({ path: './config/config.env' })
@@ -29,7 +30,7 @@ if (process.env.NODE_ENV === "DEV") {
 // user route
 app.use("/api/user", userRoute)
 // admin route
-app.use("/api/admin", (req, res) => res.status(200).send({ "message": "admin home" }))
+app.use("/api/admin", adminRoute)
 
 app.use("*", (req, res) => res.send("page not found"))
 
