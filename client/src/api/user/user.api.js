@@ -33,7 +33,6 @@ export const createTs = async (body) => {
 }
 
 // get all tasks
-
 export const getAllTask = async () => {
     const access_token = localStorage.getItem("access_token")
     const config = { headers: { "Authorization": `${access_token}` } }
